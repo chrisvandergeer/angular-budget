@@ -1,19 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    {{title}}
   </h1>
 </div>
 <h2>Transakties</h2>
-<table class="table">
-  <p class="badge">{{aantalTransakties()}} transakties gevonden</p>
-  <tr *ngFor="let tr of transakties">
-    <td>{{tr.datum}}</td>
-    <td>{{tr.bedrag | currency: 'EUR':true}}</td>
-    <td>{{tr.omschrijving}}</td>
-    <td>
-      <span *ngIf="tr.bedrag > 0">af</span>
-      <span *ngIf="tr.bedrag < 0">bij</span>
-    </td>
-  </tr>
-</table>
+<transakties></transakties>
