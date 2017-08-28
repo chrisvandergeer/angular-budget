@@ -3,5 +3,5 @@ export class Transaktie {
   bedrag: number;
   omschrijving: string;
   watch: boolean;
-  tag: string;
+  tags: string[];
 }

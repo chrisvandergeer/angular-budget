@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { Transakties } from './transakties.component';
+import { TransaktieDataService } from './transaktie-data-service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { Transakties } from './transakties.component';
   imports: [
     BrowserModule, FormsModule
   ],
-  providers: [],
+  providers: [ TransaktieDataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
