@@ -8,5 +8,9 @@
       <span *ngIf="tr.bedrag > 0">af</span>
       <span *ngIf="tr.bedrag < 0">bij</span>
     </td>
+    <td>
+        <span *ngIf="tr.watch"><button (click)="unwatch(tr)">unwatch</button></span>
+        <span *ngIf="!tr.watch"><button (click)="watch(tr)">watch</button></span>
+    </td>
   </tr>
 </table>
