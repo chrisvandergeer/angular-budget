@@ -1,5 +1,5 @@
+<p class="badge">{{aantalTransakties()}} transakties gevonden</p>
 <table class="table">
-  <p class="badge">{{aantalTransakties()}} transakties gevonden</p>
   <tr *ngFor="let tr of transakties">
     <td>{{tr.datum}}</td>
     <td>{{tr.bedrag | currency: 'EUR':true}}</td>

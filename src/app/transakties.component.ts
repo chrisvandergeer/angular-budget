@@ -14,11 +14,16 @@ export class Transakties {
   constructor(private transaktieDataService : TransaktieDataService) {};
 
   ngOnInit() {
-    this.transakties = this.transaktieDataService.getTransakties();
+    this.transaktieDataService.getTransakties().subscribe(tr => this.transakties = tr);
+    // this.transakties = this.transaktieDataService.getTransakties();
   }
-
+ 
   aantalTransakties() {
-    return this.transakties.length;
+    let sum = 0;
+    if (Array.isArray(this.transakties)) {
+      sum = this.transakties.length;
+    }
+    return sum;
   }
 
   watch(t) {
