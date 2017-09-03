@@ -1,4 +1,3 @@
-import { TRANSAKTIES } from './mock';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Transaktie } from './transaktie';
@@ -10,6 +9,6 @@ export class TransaktieDataService {
   constructor(private http : Http) { }
 
   getTransakties() {
-    return this.http.get('http://localhost:8080/mocktran').map(response => <Transaktie[]>response.json().data);
+    return this.http.get('http://localhost:8080/transaktie').map(response => <Transaktie[]>response.json().data);
   }
 }

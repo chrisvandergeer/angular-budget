@@ -1,0 +1,23 @@
+<table class="table">
+  <tr *ngFor="let tr of transakties">
+    <td>{{tr.datum}}</td>
+    <td>{{tr.bedrag | currency: 'EUR':true}}</td>
+    <td>{{tr.omschrijving}}</td>
+    <td>
+      <span *ngIf="tr.bedrag > 0">af</span>
+      <span *ngIf="tr.bedrag < 0">bij</span>
+    </td>
+    <td>
+        <span *ngIf="tr.watch"><button (click)="unwatch(tr)">unwatch</button></span>
+        <span *ngIf="!tr.watch"><button (click)="watch(tr)">watch</button></span>
+    </td>
+    <td>
+        <span *ngFor="let tagName of tr.tags">
+          <span class="badge" (click)="removeTag(tagName, tr)">{{tagName}}</span>
+        </span>
+    </td>
+    <td>
+        <input type="text" (blur)="addTag($event, tr)" />
+    </td>
+  </tr>
+</table>

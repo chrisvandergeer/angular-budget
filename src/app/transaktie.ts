@@ -1,7 +1,9 @@
+
 export class Transaktie {
-  datum: string;
-  bedrag: number;
-  omschrijving: string;
-  watch: boolean;
-  tags: string[];
+    transaktiedatum: Date;
+    omschrijving: string;
+    bedrag: number;
+    tegenrekening: string;
+    rekening: string;
+    tags: string;
 }

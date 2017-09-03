@@ -1,24 +1,24 @@
-<p class="badge">{{aantalTransakties()}} transakties gevonden</p>
 <table class="table">
+  <thead>
+  <tr>
+      <th style="width: 100px;">Datum</th>
+      <th style="width: 200px;">rekening</th>
+      <th style="width: 200px;">tegenrekening</th>
+      <th style="width: 400px;">omschrijving</th>
+      <th style="width: 100px;">bedrag</th>
+      <th>tags</th>
+  </tr>
+</thead>
   <tr *ngFor="let tr of transakties">
-    <td>{{tr.datum}}</td>
-    <td>{{tr.bedrag | currency: 'EUR':true}}</td>
+    <td>{{tr.transaktiedatum.dayOfMonth}}-{{tr.transaktiedatum.monthValue}}-{{tr.transaktiedatum.year}}</td>
+    <td>{{tr.rekening}}</td>
+    <td>{{tr.tegenrekening}}</td>
     <td>{{tr.omschrijving}}</td>
     <td>
-      <span *ngIf="tr.bedrag > 0">af</span>
-      <span *ngIf="tr.bedrag < 0">bij</span>
+      <span>{{tr.bedrag | currency: 'EUR':true}}</span>
     </td>
-    <td>
-        <span *ngIf="tr.watch"><button (click)="unwatch(tr)">unwatch</button></span>
-        <span *ngIf="!tr.watch"><button (click)="watch(tr)">watch</button></span>
-    </td>
-    <td>
-        <span *ngFor="let tagName of tr.tags">
-          <span class="badge" (click)="removeTag(tagName, tr)">{{tagName}}</span>
-        </span>
-    </td>
-    <td>
-        <input type="text" (blur)="addTag($event, tr)" />
+    <td *ngFor="let tag of tr.tags">
+      <span class="badge">{{tag}}</span>
     </td>
   </tr>
 </table>

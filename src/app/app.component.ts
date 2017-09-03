@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Transakties } from './transakties.component';
+import { TransaktiesComponent } from './transakties.component';
 
 @Component({
   selector: 'app-root',
