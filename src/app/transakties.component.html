@@ -1,3 +1,11 @@
+<div class="input-group">
+      <input style="width: 80%" type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchString" (keyup)=search($event)>
+      <input style="width: 20%" type="text" class="form-control" placeholder="Add tag..." [(ngModel)]="tag2add">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="addTag()">Tag</button>
+      </span>
+
+</div>
 <table class="table">
   <thead>
   <tr>

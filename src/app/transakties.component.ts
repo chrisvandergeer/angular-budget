@@ -10,12 +10,26 @@ import { TransaktieDataService } from './transaktie-data-service';
 })
 export class TransaktiesComponent {
   transakties: Transaktie[];
+  searchString: string;
+  tag2add: string;
 
   constructor(private transaktieDataService : TransaktieDataService) {};
 
   ngOnInit() {
     this.transaktieDataService.getTransakties().subscribe(tr => this.transakties = tr);
     // this.transakties = this.transaktieDataService.getTransakties();
+  }
+
+  search(event) {
+    if (event.target.value.length > 0) {
+      this.transaktieDataService.findTransakties(event.target.value).subscribe(tr => this.transakties = tr);
+    } else {
+      this.transaktieDataService.getTransakties().subscribe(tr => this.transakties = tr);
+    }
+  }
+
+  addTag() {
+    this.transaktieDataService.findAndTag(this.searchString, this.tag2add).subscribe(tr => this.transakties = tr);
   }
 
   aantalTransakties() {
@@ -26,24 +40,4 @@ export class TransaktiesComponent {
     return sum;
   }
 
-  watch(t) {
-    t.watch = true;
-  }
-
-  unwatch(t) {
-    t.watch = false;
-  }
-
-  addTag(event, tr) {
-    if (tr.tags.indexOf(event.target.value) < 0) {
-      tr.tags.push(event.target.value);
-    }
-  }
-
-  removeTag(tagname, tr) {
-    let index = tr.tags.indexOf(tagname);
-    if (index >= 0) {
-      tr.tags.splice(index, 1);
-    }
-  }
 }
