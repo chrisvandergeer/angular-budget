@@ -7,6 +7,14 @@
 
 </div>
 <table class="table">
+  <tr>
+      <th *ngFor="let rij of totalen">{{rij.datum.monthValue}}-{{rij.datum.year}}</th>
+  </tr>
+  <tr>
+    <td *ngFor="let rij of totalen">{{rij.totaal | currency: 'EUR':true}}</td>
+  </tr>
+</table>
+<table class="table">
   <thead>
   <tr>
       <th style="width: 100px;">Datum</th>
