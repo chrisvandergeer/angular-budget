@@ -1,14 +1,14 @@
-<div class="input-group">
-      <input style="width: 80%" type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchString" (keyup)=search($event)>
-      <input style="width: 20%" type="text" class="form-control" placeholder="Add tag..." [(ngModel)]="tag2add">
+  <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchString" (keyup)=search($event)>
       <span class="input-group-btn">
+        <input style="width: 150px;" type="text" class="form-control" placeholder="Add tag..." [(ngModel)]="tag2add">
         <button class="btn btn-default" type="button" (click)="addTag()">Tag</button>
       </span>
+  </div>
 
-</div>
 <table class="table">
   <tr>
-      <th *ngFor="let rij of totalen">{{rij.datum.monthValue}}-{{rij.datum.year}}</th>
+      <th *ngFor="let rij of totalen">{{rij.datum.month}}</th>
   </tr>
   <tr>
     <td *ngFor="let rij of totalen">{{rij.totaal | currency: 'EUR':true}}</td>
