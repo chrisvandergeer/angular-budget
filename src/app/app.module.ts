@@ -5,11 +5,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { Transaktie } from './transaktie';
 import { TransaktiesComponent } from './transakties.component';
+import { TagsComponent } from './tags.component';
 import { TransaktieDataService } from './transaktie-data-service';
 
 @NgModule({
   declarations: [
-    AppComponent, TransaktiesComponent
+    AppComponent, TransaktiesComponent, TagsComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule

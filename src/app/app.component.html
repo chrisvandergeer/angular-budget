@@ -6,9 +6,10 @@
 </div>
 <div>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Transakties</a></li>
-    <li><a href="#">Tags & Queries</a></li>
+    <li [class.active]='transakties'><a href="#" (click)='showTransakties()'>Transakties</a></li>
+    <li [class.active]='tags'><a href="#" (click)='showTags()'>Tags & Queries</a></li>
 </ul>
 </div>
 <p>&nbsp;</p>
-<transakties></transakties>
+<tags *ngIf='tags'></tags>
+<transakties *ngIf='transakties' (click)='showTransakties()'></transakties>
